@@ -1,0 +1,18 @@
+package com.jt.pojo;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+@Data
+@Accessors(chain = true)
+@TableName("tb_user")
+public class User extends BasePojo{
+    private static final long serialVersionUID = 2137090507222805006L;
+
+    private Long id;
+    private String username;
+    private String password;
+    private String phone;
+    private String email;
+}
