@@ -92,10 +92,10 @@
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-redis</artifactId>-->
+<!--        </dependency>-->
 
         <!--springBoot整合JSP添加依赖 -->
         <!--servlet依赖 注意与eureka整合时的问题 -->
@@ -141,11 +141,11 @@
         </dependency>
 
         <!--添加spring-datajar包  -->
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-<!--            <version>1.4.1.RELEASE</version>-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.data</groupId>-->
+<!--            <artifactId>spring-data-redis</artifactId>-->
+<!--&lt;!&ndash;            <version>1.4.1.RELEASE</version>&ndash;&gt;-->
+<!--        </dependency>-->
     </dependencies>
     <modules>
         <module>jt-common</module>

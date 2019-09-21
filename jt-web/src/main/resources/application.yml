@@ -11,6 +11,6 @@ dubbo:
   application:
     name: consumer-web
   registry:
-    address: zookeeper://192.168.221.129:2181
+    address: zookeeper://192.168.19.129:2181
       
   
