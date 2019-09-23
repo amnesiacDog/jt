@@ -50,21 +50,24 @@ public class DubboCouponServiceImpl implements DubboCouponService {
     @Override
     @Transactional
     public Coupon selectAndSaveCoupon(Long userId) {
+        Coupon coupon=new Coupon();
         Integer count = couponUserMapper.selectCount(new QueryWrapper<CouponUser>().eq("user_id", userId));
         if (count>0){
-            throw new RuntimeException("已经领取了红包");
+            //throw new RuntimeException("已经领取了红包");
+            coupon = null;
+        }else {
+            List<Coupon> couponList = couponMapper.selectList(new QueryWrapper<Coupon>().eq("status", 1));
+            int key = (int) Math.random() * couponList.size();
+            coupon = couponList.get(key);
+            CouponUser couponUser = new CouponUser();
+            couponUser.setUserId(userId)
+                    .setCouponId(coupon.getId())
+                    .setStartTime(new Date())
+                    .setEndTime(coupon.getEndTime())
+                    .setCreated(new Date())
+                    .setUpdated(new Date());
+            couponUserMapper.insert(couponUser);
         }
-        List<Coupon> couponList = couponMapper.selectList(new QueryWrapper<Coupon>().eq("status", 1));
-        int key = (int) Math.random() * couponList.size();
-        Coupon coupon = couponList.get(key);
-        CouponUser couponUser = new CouponUser();
-        couponUser.setUserId(userId)
-                .setCouponId(coupon.getId())
-                .setStartTime(new Date())
-                .setEndTime(coupon.getEndTime())
-                .setCreated(new Date())
-                .setUpdated(new Date());
-        couponUserMapper.insert(couponUser);
         return coupon;
     }
 

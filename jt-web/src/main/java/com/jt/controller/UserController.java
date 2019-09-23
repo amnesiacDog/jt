@@ -117,7 +117,7 @@ public class UserController {
 					break;
 				}
 			}
-		}
+	}
 		
 		if(!StringUtils.isEmpty(ticket)) {
 			//如果数据不为null,则删除数据

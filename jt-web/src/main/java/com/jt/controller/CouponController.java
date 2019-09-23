@@ -50,10 +50,12 @@ public class CouponController {
         System.out.println(userId);
         Coupon coupon = couponService.selectAndSaveCoupon(userId);
         if (coupon==null){
-            throw new RuntimeException("没有可用红包");
+//            throw new RuntimeException("没有可用红包");
+            return "problem";
+        }else {
+            model.addAttribute(coupon);
+            return "index1";
         }
-        model.addAttribute(coupon);
-        return "index1";
     }
 
     @RequestMapping("/index1")

@@ -1,5 +1,6 @@
 package com.jt.config;
 
+import com.jt.interceptor.UserInterceptor2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -21,7 +22,9 @@ public class MvcConfigurer implements WebMvcConfigurer{
 	
 	@Autowired
 	private UserInterceptor userInterceptor;
-	
+	@Autowired
+	private UserInterceptor2 userInterceptor2;
+
 	/**
 	 * 拦截器路径:
 	 * 	/cart/*  拦截url请求中/cart/xxxx 下的一级路径
@@ -30,7 +33,9 @@ public class MvcConfigurer implements WebMvcConfigurer{
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		
-		registry.addInterceptor(userInterceptor).addPathPatterns("/cart/**","/order/**","/coupon/**");
+		registry.addInterceptor(userInterceptor).addPathPatterns("/cart/**","/order/**");
+//				,"/coupon/**");
+		registry.addInterceptor(userInterceptor2).addPathPatterns("/coupon/**");
 	}
 	
 }
