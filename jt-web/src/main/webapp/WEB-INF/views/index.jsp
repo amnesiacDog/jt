@@ -401,7 +401,7 @@ pageConfig.DATA_Tabs = {"1615":{"1":{"d":"g15\/M00\/13\/1E\/rBEhWFJ4sNUIAAAAAAHJ
 
 	function AlertHB(button) {
 		$(document).ready(function() {
-			var url="http://coupon.jt.com/coupon/index2/";
+			var url="http://www.jt.com/coupon/index2/";
 			popWin.showWin("800","600","H B",url);
 		});
 	}

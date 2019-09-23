@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Data
 @Accessors(chain = true)
-@TableName("tb_coupon_cat")
+@TableName("tb_coupon_user")
 public class CouponUser extends BasePojo{
     @TableId
     private String couponId;

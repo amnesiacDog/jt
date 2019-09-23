@@ -47,6 +47,7 @@ public class CouponController {
     @RequestMapping("/index2")
     public String toIndex2( Model model){
         Long userId = UserThreadLocalUtil.get().getId();
+        System.out.println(userId);
         Coupon coupon = couponService.selectAndSaveCoupon(userId);
         if (coupon==null){
             throw new RuntimeException("没有可用红包");
